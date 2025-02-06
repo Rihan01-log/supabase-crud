@@ -23,7 +23,6 @@ class _UpdateState extends State<Update> {
   TextEditingController username = TextEditingController();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     name = TextEditingController(text: widget.name);
     username = TextEditingController(text: widget.username);
