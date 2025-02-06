@@ -21,7 +21,7 @@ class Supaservice {
     try {
       await supabaseData.insert([data.toSupabase()]);
       getAllData();
-      
+
       log('data added');
     } catch (e) {
       log('error in adding:$e');
@@ -32,18 +32,18 @@ class Supaservice {
     try {
       await supabaseData.update(data.toSupabase()).eq('id', id);
       getAllData();
-      log('service deleted');
+      log('upadated successfully');
     } catch (e) {
       log('$e');
     }
   }
 
-  Future <void>delete(int id)async{
-   try {
-     await supabaseData.delete().eq('id', id);
-     log('deleted');
-   } catch (e) {
-     log('error in delting:$e');
-   }
+  Future<void> delete(int id) async {
+    try {
+      await supabaseData.delete().eq('id', id);
+      log('deleted');
+    } catch (e) {
+      log('error in delting:$e');
+    }
   }
 }
