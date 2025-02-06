@@ -33,9 +33,10 @@ class _HomepageState extends State<Homepage> {
           TextField(
             controller: name,
             decoration: InputDecoration(
-                border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            )),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
           ),
           SizedBox(
             height: 10,
@@ -85,9 +86,11 @@ class _HomepageState extends State<Homepage> {
                                           ));
                                     },
                                     icon: Icon(Icons.edit)),
-                                    IconButton(onPressed: () {
+                                IconButton(
+                                    onPressed: () {
                                       value.deleteData(data.id!);
-                                    }, icon: Icon(Icons.delete))
+                                    },
+                                    icon: Icon(Icons.delete))
                               ],
                             ),
                           ),
