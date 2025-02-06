@@ -68,19 +68,28 @@ class _HomepageState extends State<Homepage> {
                         return Card(
                           child: ListTile(
                             title: Text(data.name!),
-                            trailing: IconButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Update(
-                                          id: id,
-                                          name: name.text,
-                                          username: username.text,
-                                        ),
-                                      ));
-                                },
-                                icon: Icon(Icons.edit)),
+                            subtitle: Text(data.username!),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Update(
+                                              id: id,
+                                              name: name.text,
+                                              username: username.text,
+                                            ),
+                                          ));
+                                    },
+                                    icon: Icon(Icons.edit)),
+                                    IconButton(onPressed: () {
+                                      value.deleteData(data.id!);
+                                    }, icon: Icon(Icons.delete))
+                              ],
+                            ),
                           ),
                         );
                       })))

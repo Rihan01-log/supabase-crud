@@ -40,4 +40,15 @@ class Supapprovider extends ChangeNotifier {
       log('error in upadted provider:$e');
     }
   }
+
+  Future<void> deleteData(int id) async {
+    try {
+      await service.delete(id);
+      getData();
+      notifyListeners();
+      log('Deleted');
+    } catch (e) {
+      log('error in deleting in provider');
+    }
+  }
 }
