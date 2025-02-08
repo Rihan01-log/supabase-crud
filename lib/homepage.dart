@@ -60,42 +60,45 @@ class _HomepageState extends State<Homepage> {
               },
               child: Text('submit')),
           Expanded(
-              child: Consumer<Supapprovider>(
-                  builder: (context, value, child) => ListView.builder(
-                      itemCount: value.user.length,
-                      itemBuilder: (context, index) {
-                        final data = value.user[index];
-                        final id = data.id;
-                        return Card(
-                          child: ListTile(
-                            title: Text(data.name!),
-                            subtitle: Text(data.username!),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Update(
-                                              id: id,
-                                              name: name.text,
-                                              username: username.text,
-                                            ),
-                                          ));
-                                    },
-                                    icon: Icon(Icons.edit)),
-                                IconButton(
-                                    onPressed: () {
-                                      value.deleteData(data.id!);
-                                    },
-                                    icon: Icon(Icons.delete))
-                              ],
-                            ),
-                          ),
-                        );
-                      })))
+            child: Consumer<Supapprovider>(
+              builder: (context, value, child) => ListView.builder(
+                itemCount: value.user.length,
+                itemBuilder: (context, index) {
+                  final data = value.user[index];
+                  final id = data.id;
+                  return Card(
+                    child: ListTile(
+                      title: Text(data.name!),
+                      subtitle: Text(data.username!),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Update(
+                                        id: id,
+                                        name: name.text,
+                                        username: username.text,
+                                      ),
+                                    ));
+                              },
+                              icon: Icon(Icons.edit)),
+                          IconButton(
+                              onPressed: () {
+                                value.deleteData(data.id!);
+                              },
+                              icon: Icon(Icons.delete))
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          )
         ],
       ),
     );

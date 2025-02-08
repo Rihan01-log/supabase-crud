@@ -62,7 +62,9 @@ class _UpdateState extends State<Update> {
                         widget.id!);
                     Navigator.pop(context);
                   },
-                  child: Text('Save')))
+                  child: Text('Save'),
+              ),
+          )
         ],
       ),
     );
